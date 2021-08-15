@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/add_property.css">
+    <title>Add Property</title>
+</head>
+<script>
+    function dynamicdropdown(listindex)
+       {
+           const status = document.querySelector('#status');
+           switch (listindex)
+           {
+           case "sell" :
+               const availableSell = new Option('Available For Sell','available_for_sell');
+               const sold = new Option('Sold','sold');
+               status.options[1] = availableSell
+               status.options[2] = sold
+            
+               break;
+           case "rent" :
+           const availableRent = new Option('Available For Rent','available_for_rent');
+               const rented= new Option('Rented','rented');
+               status.options[1] = availableRent
+               status.options[2] = rented
+              
+               break;
+           }
+           return true;
+       }
+   </script>
+<body>
+    
+    <!-- component -->
+<div class=" flex items-center justify-center">
+        
+    <form method="POST" action="/office/add_property" id="form" class="bg-white shadow-md rounded px-8 pt-6 pb-4 mb-4">
+        <br>
+        <h1 class="block text-gray-700 font-bold mb-2 text-xl text-center">ADD PROPERTY</h1>
+        <br>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" >
+                AREA
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                name="area" id="area" type="number" placeholder="Area" required>
+        </div>
+        
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2">
+                BHK
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                name="bhk" id="bhk" type="number" placeholder="Enter how many bhk" required>
+        </div>
+        
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" >
+                Price
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                name="price" id="" type="number" placeholder="Price" required>
+        </div>
+
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" >
+                Asked Price
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                name="asked_price" type="number" placeholder="Asked Price" required>
+        </div>
+
+        <div class="mb-2">
+
+            <label class="block text-gray-700 text-sm font-bold mb-2" >
+                City
+            </label>
+            <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            name="city" type="text" placeholder="City" required>
+            
+        </div>
+
+        <div class="mb-2">
+
+            <label class="block text-gray-700 text-sm font-bold mb-2" >
+                Locality
+            </label>
+            
+            <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            name="locality" type="text" placeholder="Locality" required>
+        </div>
+
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" >
+                Select Type Of Property
+            </label>
+            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+             name="type"  onchange= "javascript :dynamicdropdown(this.options[this.selectedIndex].value)" >
+                <option disabled selected class="input100" value=""> Select option </option>
+                <option class="" name="sell" value="sell">Sell</option>
+                <option name="rent" value="rent">Rent</option>
+            </select>
+        </div>
+
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" >
+               Select Current Status
+            </label>
+            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="status" id="status">
+                <option selected disabled value=""> Select Status</option>
+            </select>
+        </div>
+
+
+
+        <div class="mb-2">
+
+            <label class="block text-gray-700 text-sm font-bold mb-2" >
+               Owner ID
+            </label>
+            
+            <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            name="owner_id" type="number" placeholder="Owner ID" required>
+        </div>
+
+        <div class="mb-2">
+
+            <label class="block text-gray-700 text-sm font-bold mb-2" >
+                Agent ID
+            </label>
+            
+            <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            name="agent_id" type="number" placeholder="Agent ID" required>
+        </div>
+
+        
+        <div class="flex items-center justify-between">
+            <button id="submit" type="submit"
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-12 rounded focus:outline-none focus:shadow-outline"
+            >
+                ADD
+            </button>
+        </div>
+
+        <div class="mb-6">
+
+
+    </form>
+    
+</div>
+
+<script>
+    function submit(){
+        console.log('form submit');
+			const form =  document.querySelector('#form');
+			form.submit();
+			console.log('form submit');
+			return true;
+    }
+</script>
+<script src="https://kit.fontawesome.com/1e268974cb.js" crossorigin="anonymous"></script>
+<!-- <script src="assets/js/helpers.js"></script>
+<script src="assets/js/whatsapp.js"></script> -->
+
+</body>
+</html>

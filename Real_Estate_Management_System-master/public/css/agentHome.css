@@ -1,0 +1,94 @@
+body {
+  background-image: url(../img/agentbg3.png);
+}
+
+.logout {
+  display: flex;
+  margin: 10px;
+  justify-content: flex-end;
+}
+.logout a button {
+  font-size: 20px;
+  padding: 12px 50px;
+  background-color: #fec313;
+  border-radius: 15px;
+  border-color: white;
+}
+
+.agent {
+  margin: 0;
+  padding: 0;
+}
+
+.agent_info_width {
+  width: 35%;
+}
+.agent_info {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.tabledata {
+  margin: 10px 40px;
+}
+
+.property_details {
+  width: 70%;
+  margin: 60px auto;
+}
+
+.property_details > h1 {
+  text-align: center;
+  margin: 32px 40px;
+  font-size: 40px;
+  font-family: ubuntu;
+}
+
+.property_sold_rented {
+  width: 50%;
+  margin: 40px auto;
+}
+.property_sold_rented > h1 {
+  text-align: center;
+  margin: 32px 40px;
+  font-size: 40px;
+  font-family: ubuntu;
+}
+.card {
+  height: 100%;
+  width: 210px;
+  margin: auto;
+  background: #ffc107;
+  opacity: 0.95;
+}
+
+a:hover {
+  color: black;
+}
+.card > button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.add:active {
+  background: #ffee00;
+}
+
+.submit {
+  padding: 2px 17px;
+  background: #ffc107;
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+.submit:active {
+  background: #ffee00;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+}

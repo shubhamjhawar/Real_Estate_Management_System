@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/profile.css">
+    <title>Profile</title>
+</head>
+
+<style>
+    #properties {
+        display : none;
+    }
+    #sold {
+        display : none;
+    }
+    #rented {
+        display : none;
+    }
+
+    .heading{
+        display : none;
+        text-align : center;
+        font-family: ubuntu;
+        font-size: 24px;
+    }   
+</style>
+<body>
+    <div class="card">
+        <header>    
+          <img src='/img/agent.png' alt=''>
+          <p class="face__name"><%= profile[0].firstname %> <%= profile[0].lastname %> </p>
+          <h4> Agent Id  :  <%= profile[0].a_id %></h4>
+          <h5>Contact  <%= profile[0].contact %></h5>
+        </header>
+        <div class="card_body">
+          <ul class="social">
+            <li class="twitter">
+               <button onclick="toggleProperties()"><h3><%= cproperty[0].total_count %></h3></button>
+              <p>Total Properties</p>
+            </li>   
+            <li class="facebook">
+              <button onclick="toggleSold()"><h3><%= csold[0].total_count %></h3> </button>
+              <p>Properties Sold</p>
+            </li>
+            <li class="instagram">
+               <button onclick="toggleRented()"><h3><%= crented[0].total_count %></h3></button>
+              <p>Properties Rented</p>
+            </li>
+        </div>
+      </div>
+
+      <!-- Tables -->
+
+      <div class="heading">
+
+    </div>
+
+
+      <!-- allproperties -->
+     
+      <section>
+        <div class="table_properties" id="properties"> 
+        <h1>Fixed Table header</h1>
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Property ID</th>
+                <th>AREA</th>
+                <th>BHK</th>
+                <th>PRICE</th>
+                <th>ASKED PRICE</th>
+                <th>LOCALITY</th>
+                <th>CITY</th>
+                <th>CURRENT STATUS</th>
+                <th>AGENT ID</th>
+                <th>OWNER ID</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                <% for(let property of pdetails) { %> 
+              <tr>
+                <td> <%= property.p_id %></td>
+                <td><%= property.area %></td>
+                <td><%= property.bhk %></td>
+                <td> RS <%= property.price %></td>
+                <td>RS <%=property.asked_price  %> </td>
+                <td><%= property.locality %>  </td>
+                <td><%= property.city %>  </td>
+                <td><%= property.current_status %>  </td>
+                <td><%= property.a_id %>  </td>
+                <td><%= property.owner_id %></td>
+              </tr>
+              <% } %> 
+              
+            </tbody>
+          </table>
+        </div>
+    </div>
+      </section>
+    
+
+      <!-- properties sold -->
+       
+      <section>
+        <div class="table_sold" id="sold">
+        <h1>Fixed Table header</h1>
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Property ID</th>
+                <th>BHK</th>
+                <th>AREA</th>
+                <th>PRICE</th>
+                <th>ASKED PRICE</th>
+                <th>LOCALITY</th>
+                <th>CITY</th>
+                <th>CURRENT STATUS</th>
+                <th>AGENT ID</th>
+                <th>OWNER ID</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                <% for(let sold of solds) { %> 
+                <tr>
+                  <td> <%= sold.p_id %></td>
+                  <td><%= sold.area %></td>
+                  <td><%= sold.bhk %></td>
+                  <td> RS <%= sold.price %></td>
+                  <td>RS <%=sold.asked_price  %> </td>
+                  <td><%= sold.locality %>  </td>
+                  <td><%= sold.city %>  </td>
+                  <td><%= sold.current_status %>  </td>
+                  <td><%= sold.a_id %>  </td>
+                  <td><%= sold.owner_id %></td>
+                </tr>
+                <% } %>
+              
+            </tbody>
+          </table>
+        </div>
+    </div>
+      </section>
+   
+
+
+      <!-- properties rented -->
+      <section>
+    <div class="table_rented" id="rented">
+        <h1>Fixed Table header</h1>
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Property ID</th>
+                <th>BHK</th>
+                <th>AREA</th>
+                <th>PRICE</th>
+                <th>ASKED PRICE</th>
+                <th>LOCALITY</th>
+                <th>CITY</th>
+                <th>CURRENT STATUS</th>
+                <th>AGENT ID</th>
+                <th>OWNER ID</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <% for(let rent of rented) { %> 
+                <tr>
+                  <td> <%= rent.p_id %></td>
+                  <td><%= rent.area %></td>
+                  <td><%= rent.bhk %></td>
+                  <td> RS <%= rent.price %></td>
+                  <td>RS <%=rent.asked_price  %> </td>
+                  <td><%= rent.locality %>  </td>
+                  <td><%= rent.city %>  </td>
+                  <td><%= rent.current_status %>  </td>
+                  <td><%= rent.a_id %>  </td>
+                  <td><%= rent.owner_id %></td>
+                </tr>
+                <% } %>
+            </tbody>
+          </table>
+        </div>  
+    </div>
+      </section>
+    
+      <script>
+          function toggleProperties(){
+              const properties = document.querySelector('#properties');
+              const sold = document.querySelector('#sold');
+              const rented = document.querySelector('#rented');
+              console.log(properties,sold,rented)
+              if (properties.style.display === "none" || properties.style.display === "") {
+                  console.log('properties')
+                properties.style.display = "block";
+                
+                sold.style.display = "none";
+                rented.style.display = "none";
+
+            } else {
+                 properties.style.display = "none";
+                
+                }
+          }
+
+          function toggleSold(){
+            const properties = document.querySelector('#properties');
+              const sold = document.querySelector('#sold');
+              const rented = document.querySelector('#rented');
+              console.log(properties,sold,rented)
+              if (sold.style.display === "none" || sold.style.display === "") {
+                  console.log('sold')
+                properties.style.display = "none";
+                sold.style.display = "block";
+                rented.style.display = "none";
+
+            } else {
+                 sold.style.display = "none";
+                }
+          }
+
+          function toggleRented() {
+            const properties = document.querySelector('#properties');
+              const sold = document.querySelector('#sold');
+              const rented = document.querySelector('#rented');
+              console.log(properties,sold,rented)
+              if (rented.style.display === "none" || rented.style.display === "") {
+                  console.log('rented')
+                properties.style.display = "none";
+                sold.style.display = "none";
+                rented.style.display = "block";
+
+            } else {
+                 rented.style.display = "none";
+            
+                } 
+          }
+      </script>
+
+
+
+</body>
+</html>

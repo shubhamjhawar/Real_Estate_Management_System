@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/total_properties.css">
+    <title>Total Properties</title>
+</head>
+<body>
+
+    <div class="data">
+        <div class="circle"> <%= countp[0].total_count %>  </div>
+        <div class="ornament">		
+	<h2><span></span>Total Properties</h2>
+    </div>
+    </div>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Property ID</th>
+                    <th>Area</th>
+                    <th>BHK</th>
+                    <th>Price</th>
+                    <th>Asked Price</th>
+                    <th>Locality</th>
+                    <th> City</th>
+                    <th> Type </th>
+                    <th>Current Status</th>
+                    <th>Owner ID</th>
+                    <th>Agent ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let property of pDetails) { %> 
+                <tr>
+                    <td><%=property.p_id %> </td>
+                    <td><%=property.area %> </td>
+                    <td><%=property.bhk %> </td>
+                    <td><%=property.price %> </td>
+                    <td><%=property.asked_price %> </td>
+                    <td><%=property.locality %> </td>
+                    <td><%=property.city %> </td>
+                    <td><%=property.rent_sell %> </td>
+                    <td><%=property.current_status %> </td>
+                    <td><%=property.owner_id %> </td>
+                    <td><%=property.a_id %> </td>
+                   
+                </tr>
+                <% } %> 
+              
+               
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
