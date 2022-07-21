@@ -3,7 +3,7 @@ var mysql      = require('mysql');
 var options = {
   host     : 'localhost',
   user     : 'root',
-  password : 'agrawal',
+  password : 'shubhamj143',
   database : 'project',
   multipleStatements : true
 };
